@@ -1,0 +1,42 @@
+The run_analysis.R script will perform the data preparation and the
+5 steps required in the course project description.
+
+Download the dataset from the address provided in the project description
+
+
+Assign each data to variables
+features <- features.txt : 561 rows, 2 columns
+activities <- activity_labels.txt : 6 rows, 2 columns
+subject_test <- test/subject_test.txt : 2947 rows, 1 column
+x_test <- test/X_test.txt : 2947 rows, 561 columns
+y_test <- test/y_test.txt : 2947 rows, 1 columns
+subject_train <- test/subject_train.txt : 7352 rows, 1 column
+x_train <- test/X_train.txt : 7352 rows, 561 columns
+y_train <- test/y_train.txt : 7352 rows, 1 columns
+
+Merge the training and test sets to create one dataset
+X (10299 rows, 561 columns) is created by merging x_train and x_test
+Y (10299 rows, 1 column) is created by merging y_train and y_test
+Subject (10299 rows, 1 column) is created by merging subject_train and subject_test
+Merged_Data (10299 rows, 563 column) is created by merging Subject, Y and X
+
+Extract only the measurements on mean and standard deviation for each measurement
+TidyData (10299 rows, 88 columns) is created by subsetting Merged_Data
+
+Uses descriptive activity names to name the activities in the data set
+Numbers in code column replaced with corresponding activity
+
+Appropriately labels the data set with descriptive variable names
+code column in TidyData renamed into activities
+Acc replaced by accelerometer
+Gyro replaced by gyroscope
+BodyBody replaced by body
+Mag by magnitude
+f replaced by frequency
+t replaced by time
+
+Creates a second, independent tidy data set with the average of each variable for each activity and each subject
+FinalData (180 rows, 88 columns) is created by sumarizing the data from the last step and taking the means of each variable
+for each activity and each subject, after grouping them by subject and activity.
+
+Export finaldata into finaldata.txt file.
